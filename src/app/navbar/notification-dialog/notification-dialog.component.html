@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>{{notification?.title}}</h2>
+
+<mat-dialog-content>
+  <ng-container>
+    <div>
+      {{notification?.body}}
+    </div>
+  </ng-container>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="close-button" (click)="close()">Close</button>
+</mat-dialog-actions>

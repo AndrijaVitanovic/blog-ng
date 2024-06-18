@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+<div class="all">
+  <div style="background: black;height: 210px;width: 100%"></div>
+  <div class="pageContent">
+    <div class="selectTerms" [matMenuTriggerFor]="terms">
+      <p style="margin-left: 10px;font-size: 18px">Content Policy</p>
+      <mat-icon style="margin-right: 10px">keyboard_arrow_down</mat-icon>
+    </div>
+    <div style="width: 73%;margin-top: 40px">
+      <p style="font-size: 28px">Spotlight Content Policy</p>
+      <p>Spotlight is a vast network of communities that are created, run, and populated by you, the Spotlight users.
+
+      <p>Through these communities, you can post, comment, vote, discuss, learn, debate, support, and connect with people who share your interests, and we encourage you to find—or even create—your home on Spotlight.</p>
+
+      <p>While not every community may be for you (and you may find some unrelatable or even offensive), no community should be used as a weapon. Communities should create a sense of belonging for their members, not try to diminish it for others. Likewise, everyone on Spotlight should have an expectation of privacy and safety, so please respect the privacy and safety of others.</p>
+
+      <p>Every community on Spotlight is defined by its users. Some of these users help manage the community as moderators. The culture of each community is shaped explicitly, by the community rules enforced by moderators, and implicitly, by the upvotes, downvotes, and discussions of its community members. Please abide by the rules of communities in which you participate and do not interfere with those in which you are not a member.</p>
+
+      <p>Spotlight and its communities are only what we make of them together, and can only exist if we operate by a shared set of rules. We ask that you abide by not just the letter of these rules, but the spirit as well.</p>
+    </div>
+  </div>
+</div>
+
+<mat-menu yPosition="below" xPosition="before" #terms class="terms">
+  <button mat-menu-item routerLink="/privacy-policy">
+    Privacy Policy
+  </button>
+  <button mat-menu-item routerLink="/content-policy">
+    Content Policy
+  </button>
+</mat-menu>
+

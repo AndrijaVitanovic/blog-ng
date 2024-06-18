@@ -1,0 +1,30 @@
+<div class="content">
+  <p class="title">Log in</p>
+  <p class="agreement-policy">By continuing, you agree to our <a href="#">User Agreement</a> and <a href="#">Privacy
+    Policy</a>.</p>
+  <div class="google-btn">
+    <div class="img-background"><img src="assets/google-icon.svg" alt="Google"/></div>
+    <p>Continue with google</p>
+  </div>
+  <div class="or-div">
+    <span></span>
+    <p>OR</p>
+    <span></span>
+  </div>
+  <form [formGroup]="form" (submit)="submitForm()">
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="" formControlName="username" required>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="" formControlName="password" type="password" [type]="hide ? 'password' : 'text'"
+             required>
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </mat-form-field>
+    <mat-error *ngIf="!valid">{{errorText}}</mat-error>
+    <button class="login-btn">log in</button>
+  </form>
+  <p class="forgot">Forgot your <a href="#">Username</a> or <a href="#">Password</a>?</p>
+  <p class="new">New to Spotlight? <a routerLink="/register">sign up</a></p>
+</div>

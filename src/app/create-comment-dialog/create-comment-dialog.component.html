@@ -1,0 +1,9 @@
+<div mat-dialog-content>
+    <form [formGroup]="form" (submit)="submitForm()" style="display: flex;flex-direction: column;">
+        <mat-form-field appearance="outline">
+          <mat-label>Comment Content</mat-label>
+          <input matInput placeholder="" formControlName="body" required>
+        </mat-form-field>
+        <button mat-raised-button color="primary">Create Comment!</button>
+    </form>
+</div>

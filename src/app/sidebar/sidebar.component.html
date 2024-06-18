@@ -1,0 +1,13 @@
+<div class="sidebar">
+  <div class="topics">
+    <p class="title">Categories</p>
+    <div class="topic">
+      <mat-icon>home</mat-icon>
+      <p>Home</p>
+    </div>
+    <div class="topic" *ngFor="let category of categories">
+      <mat-icon>{{category?.icon}}</mat-icon>
+      <p (click)="sendSelectedCategory(category?.id)">{{category?.name}}</p>
+    </div>
+  </div>
+</div>

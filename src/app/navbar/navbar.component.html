@@ -1,0 +1,70 @@
+<div class="navbar">
+  <div class="left">
+    <div class="logo" routerLink="">
+      <img alt="" src="assets/logo-spotlight.png" class="logo-img"/>
+      <p>Spot<span>light</span></p>
+    </div>
+  </div>
+  <div class="right">
+    <form class="search">
+      <mat-icon style="color: gray">search</mat-icon>
+      <input placeholder="Search Spotlight">
+    </form>
+    <div class="notification-icon"
+         [matMenuTriggerFor]="notifMenu">
+      <mat-icon matTooltip="See notifications"
+                [matBadge]="unreadCount !== 0 ? unreadCount : null">
+        notifications
+      </mat-icon>
+    </div>
+    <div class="notification-icon" *ngIf="loggedIn" (click)="routeToCreatePost()">
+      <mat-icon matTooltip="Create post">add</mat-icon>
+    </div>
+    <a class="login-btn" routerLink="/login" *ngIf="!loggedIn">
+      Log In
+    </a>
+    <div class="login-profile">
+      <div class="profile" [matMenuTriggerFor]="menuProfile">
+        <img *ngIf="profilePicture" [src]="profilePicture" class="profile-picture" alt="profile picture">
+        <mat-icon class="person" *ngIf="!loggedIn">person_outline</mat-icon>
+        <mat-icon class="dropdown-btn" [ngClass]="{'arrow-dropdown': loggedIn}">keyboard_arrow_down</mat-icon>
+      </div>
+    </div>
+  </div>
+</div>
+<mat-menu yPosition="below" xPosition="before" #menuProfile>
+  <button mat-menu-item routerLink="/content-policy">
+    <mat-icon>list_alt</mat-icon>
+    Terms & Policies
+  </button>
+  <button mat-menu-item routerLink="/login" *ngIf="!isLoggedIn()">
+    <mat-icon>login</mat-icon>
+    Log In / Sign Up
+  </button>
+  <button mat-menu-item (click)="logout()" *ngIf="isLoggedIn()">
+    <mat-icon>logout</mat-icon>
+    Log Out
+  </button>
+</mat-menu>
+<mat-menu class="notification-menu" #notifMenu yPosition="below" xPosition="before">
+  <ng-container (click)="$event.stopPropagation()">
+    <div class="notifications-header">
+      <p class="header">Notifications</p>
+      <button class="read-button">Mark all as read</button>
+    </div>
+    <mat-divider></mat-divider>
+  </ng-container>
+  <ng-container *ngFor="let notif of notifications" (click)="$event.stopPropagation()">
+    <div class="notifications-header">
+      <button class="text" mat-menu-item (click)="seenNotification(notif.id)">
+        <mat-icon>notifications</mat-icon>
+        {{notifications.length === 0 ? 'No new notifications!' : notif?.body}}
+      </button>
+      <button class="see-more" (click)="openDialog(notif?.id, notif?.title, notif?.body);$event.stopPropagation();">
+        See more
+      </button>
+    </div>
+    <mat-divider></mat-divider>
+  </ng-container>
+</mat-menu>
+

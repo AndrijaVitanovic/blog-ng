@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+<div class="all">
+  <div style="background: black;height: 210px;width: 100%"></div>
+  <div class="pageContent">
+    <div class="selectTerms" [matMenuTriggerFor]="terms">
+      <p style="margin-left: 10px;font-size: 18px">Privacy Policy</p>
+      <mat-icon style="margin-right: 10px">keyboard_arrow_down</mat-icon>
+    </div>
+    <div style="width: 73%;margin-top: 40px">
+      <p style="font-size: 28px">Spotlight Privacy Policy</p>
+      <p>Effective February 15, 2023. Last Revised February 15, 2023.
+
+      <p>At Spotlight, we believe that privacy is a right. We want to empower our users to be the masters of their identity. In this privacy policy, we want to help you understand how and why Spotlight, Inc. ("Spotlight,” "we” or "us”) collects, uses, and shares information about you when you use our sites, mobile apps, widgets, and other online products and services (collectively, the "Services") or when you otherwise interact with us or receive a communication from us.</p>
+
+      <p>We collect minimal information that can be used to identify you by default. If you want to just browse, you don't need an account. If you want to create an account to participate in a subreddit, we don't require you to give us your real name. We don't automatically track your precise location. You can share as much or as little about yourself as you want. You can create multiple accounts, update information as you see fit, or ask us to delete your information.</p>
+
+      <p>Any data we collect is used primarily to provide our services, which are focused on allowing people to come together and form communities, the vast majority of which are public. If you have questions about how we use your data, you can always ask us for more information.</p>
+    </div>
+  </div>
+</div>
+
+<mat-menu yPosition="below" xPosition="before" #terms class="terms">
+  <button mat-menu-item routerLink="/content-policy">
+    Content Policy
+  </button>
+  <button mat-menu-item routerLink="/privacy-policy">
+    Privacy Policy
+  </button>
+</mat-menu>
+
+

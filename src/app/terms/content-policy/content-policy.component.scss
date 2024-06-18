@@ -1,0 +1,25 @@
+.all {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+
+  .pageContent {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    align-self: flex-end;
+    margin-top: 40px;
+    .selectTerms {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      height: 50px;
+      width: 26.2%;
+      border: 1px solid #cbcdce;
+      cursor: pointer;
+    }
+  }
+}
+
+::ng-deep {.mat-menu-panel.terms { width: 300px;margin-top: 8px } }

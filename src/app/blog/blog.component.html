@@ -1,0 +1,53 @@
+<app-navbar></app-navbar>
+<div class="all">
+  <div class="sidebar">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="pageContent">
+    <div style="margin-top: 250px;align-self: center;justify-self: center;height: 100vh;" *ngIf="isFetching">
+      <mat-spinner></mat-spinner>
+    </div>
+    <div class="posts" *ngIf="!isFetching">
+      <div class="post" *ngFor="let p of posts" (click)="routeToDetailedView(p)" style="cursor: pointer;">
+        <div class="likes">
+          <mat-icon (click)="upvote(p)">arrow_upward</mat-icon>
+          <p>{{ roundRating(p?.likes - p?.dislikes) }}</p>
+          <mat-icon (click)="downvote(p)">arrow_downward</mat-icon>
+        </div>
+        <div class="right">
+          <div class="header">
+            <div class="info">
+              <img [src]="getProfilePicture(p.user)" class="profile-picture" alt="profile picture">
+              <p class="type">{{ p?.category?.name }}</p>
+              <p><span style="font-size: 10px">Posted by {{ p?.user?.firstName }}</span></p>
+              <p style="font-size: 10px; margin-left: 10px">{{calculateCreatedDate(p?.createdDate)}}</p>
+            </div>
+          </div>
+          <div class="title">
+            {{ p?.title }}
+          </div>
+          <div class="content">
+
+            <div class="visible-content">
+              {{ p?.body | truncate: 500 }}
+            </div>
+          </div>
+          <div class="footer">
+            <div class="footerDivs" (click)="routeToDetailedView(p)">
+              <mat-icon>mode_comment</mat-icon>
+              <p>{{ p?.comments.length }}</p>
+            </div>
+            <div class="footerDivs">
+              <mat-icon>share</mat-icon>
+              <p>Share</p>
+            </div>
+            <div class="footerDivs">
+              <mat-icon>save_alt</mat-icon>
+              <p>Save</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

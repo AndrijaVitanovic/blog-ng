@@ -1,0 +1,30 @@
+<div class="content">
+    <p class="title">Create a post</p>
+    <form [formGroup]="form" (submit)="submitForm()">
+      <mat-form-field appearance="outline">
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="" formControlName="title" required>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Content</mat-label>
+        <input matInput placeholder="" formControlName="body" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Choose a category</mat-label>
+        <mat-select formControlName="category">
+          <mat-option *ngFor="let c of categories" [value]="c">{{ c.name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Excerpt</mat-label>
+        <input matInput placeholder="" formControlName="excerpt" required>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Slug</mat-label>
+        <input matInput placeholder="" formControlName="slug" required>
+      </mat-form-field>
+      <button mat-raised-button color="primary">Create Post!</button>
+    </form>
+    <p style="color: red;">{{ errorText }}</p>
+  </div>
+  

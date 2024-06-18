@@ -1,0 +1,39 @@
+<div class="content">
+  <p class="title">Sign up</p>
+  <p class="agreement-policy">By continuing, you agree to our <a href="#">User Agreement</a> and <a href="#">Privacy
+    Policy</a>.</p>
+  <form [formGroup]="form" (submit)="submitForm()">
+    <mat-form-field appearance="outline">
+      <mat-label>Username</mat-label>
+      <input matInput placeholder="" formControlName="username" required>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="" formControlName="password" type="password" [type]="hidePassword ? 'password' : 'text'" required>
+      <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Confirm Password</mat-label>
+      <input matInput placeholder="" formControlName="confirmPassword" type="password" [type]="hideConfirmPassword ? 'password' : 'text'" required>
+      <mat-icon matSuffix (click)="hideConfirmPassword = !hideConfirmPassword">{{hideConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="" formControlName="email" required>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>First Name</mat-label>
+      <input matInput placeholder="" formControlName="firstName" required>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Last Name</mat-label>
+      <input matInput placeholder="" formControlName="lastName" required>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>About</mat-label>
+      <input matInput placeholder="" formControlName="about" required>
+    </mat-form-field>
+    <button class="signup-btn">sign up</button>
+  </form>
+  <p class="old">Already a Spotlighter? <a routerLink="/login">log in</a></p>
+</div>
