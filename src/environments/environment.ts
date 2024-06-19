@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   //baseApi: 'https://dev.api.blog.quendix.com'
-  baseApi: 'http://localhost:4200'
+  baseApi: 'http://localhost:8080'
 };
 
 /*
